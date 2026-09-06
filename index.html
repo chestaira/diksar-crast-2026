@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>DIKSAR CRAST 2026 — Pengumuman</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Bungee, Fredoka, Luckiest Guy, Permanent Marker -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@400;500;600;700&family=Luckiest+Guy&family=Permanent+Marker&display=swap" rel="stylesheet">
+  
+  <!-- Canvas Confetti Library for Retro Flower Bursts -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --twibbon-lime: #cce436;
+      --twibbon-purple: #581974;
+      --twibbon-dark: #220830;
+      --twibbon-orange: #f16422;
+      --twibbon-yellow: #ffde00;
+    }
+
+    html, body {
+      height: 100%;
+      min-height: 100dvh;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      background-color: var(--twibbon-dark);
+      color: #1e092b;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Fixed Logo Dimensions */
+    .img-logo-crast {
+      width: 44px !important;
+      height: 44px !important;
+      max-width: 44px !important;
+      max-height: 44px !important;
+      object-fit: contain;
+    }
+    .img-logo-kabinet {
+      width: 36px !important;
+      height: 36px !important;
+      max-width: 36px !important;
+      max-height: 36px !important;
+      object-fit: contain;
+    }
+    @media (min-width: 640px) {
+      .img-logo-crast {
+        width: 54px !important;
+        height: 54px !important;
+        max-width: 54px !important;
+        max-height: 54px !important;
+      }
+      .img-logo-kabinet {
+        width: 44px !important;
+        height: 44px !important;
+        max-width: 44px !important;
+        max-height: 44px !important;
+      }
+    }
+
+    /* Prominent Title Logo */
+    .img-logo-diksar {
+      width: 96% !important;
+      max-width: 360px !important;
+      height: auto !important;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .img-logo-diksar {
+        max-width: 480px !important;
+      }
+    }
+
+    .font-cartoon-title {
+      font-family: 'Luckiest Guy', cursive, sans-serif;
+      letter-spacing: 0.05em;
+    }
+    .font-cartoon-accent {
+      font-family: 'Bungee', cursive, sans-serif;
+    }
+    .font-marker {
+      font-family: 'Permanent Marker', cursive, sans-serif;
+    }
+
+    /* Dossier Folder */
+    .dossier-folder {
+      background-color: #fffdf5;
+      border: 3.5px solid #1f072c;
+      box-shadow: 
+        5px 7px 0px #1f072c,
+        9px 11px 0px rgba(88, 25, 116, 0.55);
+      position: relative;
+    }
+    @media (min-width: 640px) {
+      .dossier-folder {
+        border-width: 4px;
+        box-shadow: 
+          8px 10px 0px #1f072c,
+          14px 16px 0px rgba(88, 25, 116, 0.6);
+      }
+    }
+
+    /* Folder Tab */
+    .folder-tab {
+      position: absolute;
+      top: -23px;
+      left: 14px;
+      background: #fffdf5;
+      border: 3.5px solid #1f072c;
+      border-bottom: none;
+      border-radius: 12px 12px 0 0;
+      padding: 3px 12px 5px 12px;
+      font-family: 'Bungee', cursive, sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      color: #581974;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    @media (min-width: 640px) {
+      .folder-tab {
+        top: -28px;
+        left: 20px;
+        border-width: 4px;
+        border-radius: 14px 14px 0 0;
+        padding: 5px 18px 8px 18px;
+        font-size: 11px;
+        gap: 7px;
+      }
+    }
+
+    /* Stamp */
+    .case-stamp {
+      display: inline-block;
+      border: 2px solid #d9381e;
+      color: #d9381e;
+      font-family: 'Bungee', cursive, sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      padding: 2px 7px;
+      border-radius: 6px;
+      transform: rotate(-4deg);
+      opacity: 0.9;
+    }
+
+    .accepted-stamp {
+      display: inline-block;
+      border: 3.5px solid #16a34a;
+      color: #16a34a;
+      font-family: 'Bungee', cursive, sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.15em;
+      padding: 4px 14px;
+      border-radius: 10px;
+      transform: rotate(-8deg);
+      box-shadow: 0 0 10px rgba(22, 163, 74, 0.25);
+    }
+
+    /* Action Button */
+    .btn-action {
+      background: var(--twibbon-orange);
+      border: 3px solid #1f072c;
+      box-shadow: 0 4px 0px #942f06;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
+      touch-action: manipulation;
+    }
+    .btn-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0px #942f06;
+      background: #fa7234;
+    }
+    .btn-action:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0px #942f06;
+    }
+
+    /* Ambient Waves */
+    @keyframes waveTop {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes waveBottom {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+    .wave-anim-top { animation: waveTop 7s ease-in-out infinite; }
+    .wave-anim-bottom { animation: waveBottom 6s ease-in-out infinite; }
+
+    /* Depth of Field Classes */
+    .dof-deep {
+      filter: blur(4px) brightness(0.7);
+      opacity: 0.35;
+    }
+    .dof-mid {
+      filter: blur(1.5px) brightness(0.85);
+      opacity: 0.6;
+    }
+    .dof-focus {
+      filter: drop-shadow(3px 4px 0px #1f072c);
+      opacity: 0.85;
+    }
+
+    .p-item {
+      will-change: transform;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* ================= MYSTERY MACHINE ANIMATION ENGINE ================= */
+    .van-track {
+      position: fixed;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      pointer-events: none;
+      z-index: 15;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .van-track {
+        bottom: 8px;
+        height: 110px;
+      }
+    }
+
+    .van-actor {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 125px;
+      animation: driveCycle 14s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+      will-change: transform;
+      transform-origin: bottom center;
+    }
+    @media (min-width: 640px) {
+      .van-actor {
+        width: 165px;
+      }
+    }
+
+    .van-sprite {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(3px 5px 0px #1f072c);
+      animation: vanTireHum 0.18s ease-in-out infinite alternate;
+      transform-origin: center bottom;
+    }
+
+    @keyframes vanTireHum {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-1.5px); }
+    }
+
+    /* Driving Physics with 'Dangak' (Pitch UP) on Acceleration */
+    @keyframes driveCycle {
+      /* === PHASE 1: LEFT TO RIGHT (ScaleX 1) === */
+      0% {
+        transform: translate3d(-180px, 0, 0) scaleX(1) rotate(0deg);
+      }
+      3% {
+        transform: translate3d(-80px, -6px, 0) scaleX(1) rotate(-10deg);
+      }
+      8% {
+        transform: translate3d(8vw, -8px, 0) scaleX(1) rotate(-8deg);
+      }
+      16% {
+        transform: translate3d(32vw, 0, 0) scaleX(1) rotate(0deg);
+      }
+      26% {
+        transform: translate3d(62vw, 0, 0) scaleX(1) rotate(0deg);
+      }
+      34% {
+        transform: translate3d(92vw, 2px, 0) scaleX(1) rotate(4deg);
+      }
+      38% {
+        transform: translate3d(calc(100vw + 180px), 0, 0) scaleX(1) rotate(0deg);
+      }
+      39%, 49% {
+        transform: translate3d(calc(100vw + 180px), 0, 0) scaleX(-1) rotate(0deg);
+      }
+
+      /* === PHASE 2: RIGHT TO LEFT (ScaleX -1) === */
+      50% {
+        transform: translate3d(calc(100vw + 180px), 0, 0) scaleX(-1) rotate(0deg);
+      }
+      53% {
+        transform: translate3d(calc(100vw + 80px), -6px, 0) scaleX(-1) rotate(-10deg);
+      }
+      58% {
+        transform: translate3d(92vw, -8px, 0) scaleX(-1) rotate(-8deg);
+      }
+      66% {
+        transform: translate3d(68vw, 0, 0) scaleX(-1) rotate(0deg);
+      }
+      76% {
+        transform: translate3d(38vw, 0, 0) scaleX(-1) rotate(0deg);
+      }
+      84% {
+        transform: translate3d(8vw, 2px, 0) scaleX(-1) rotate(4deg);
+      }
+      88% {
+        transform: translate3d(-180px, 0, 0) scaleX(-1) rotate(0deg);
+      }
+      89%, 100% {
+        transform: translate3d(-180px, 0, 0) scaleX(1) rotate(0deg);
+      }
+    }
+
+    /* ================= DYNAMIC FOOTPRINT & PAW TRAIL ================= */
+    .footprint-track {
+      position: fixed;
+      bottom: 8px;
+      left: 0;
+      width: 100%;
+      height: 48px;
+      pointer-events: none;
+      z-index: 14;
+      overflow: hidden;
+    }
+    .print-node {
+      position: absolute;
+      opacity: 0.7;
+      transition: opacity 1.8s ease-out, transform 1.8s ease-out;
+      pointer-events: none;
+    }
+    .print-node.fading {
+      opacity: 0;
+      transform: scale(0.7) translateY(4px);
+    }
+
+    /* ================= UNMASKING MODAL & DOSSIER REVEAL ================= */
+    .unmask-overlay {
+      background: rgba(18, 4, 26, 0.88);
+      backdrop-filter: blur(6px);
+      transition: opacity 0.3s ease;
+    }
+    .unmask-card {
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    }
+    @keyframes ghostWobble {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(-4deg); }
+    }
+    .ghost-anim {
+      animation: ghostWobble 2s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="flex flex-col justify-center items-center px-3 py-6 min-h-[100dvh] relative box-border">
+
+  <!-- ================= GELOMBANG ATAS ================= -->
+  <div class="fixed top-0 left-0 right-0 z-0 pointer-events-none overflow-hidden h-20 sm:h-28">
+    <svg class="w-[120%] -ml-[10%] h-full wave-anim-top" viewBox="0 0 1200 200" preserveAspectRatio="none">
+      <path d="M0,0 L1200,0 L1200,90 C1050,140 920,40 750,100 C580,150 420,60 260,110 C140,140 50,90 0,120 Z" fill="#581974" stroke="#1f072c" stroke-width="6"/>
+      <path d="M0,0 L1200,0 L1200,60 C1020,110 890,30 720,80 C540,120 380,40 230,85 C110,110 40,65 0,90 Z" fill="#cce436" stroke="#1f072c" stroke-width="6"/>
+    </svg>
+  </div>
+
+  <!-- ================= GELOMBANG BAWAH ================= -->
+  <div class="fixed bottom-0 left-0 right-0 z-0 pointer-events-none overflow-hidden h-16 sm:h-24">
+    <svg class="w-[120%] -ml-[10%] h-full wave-anim-bottom" viewBox="0 0 1200 200" preserveAspectRatio="none">
+      <path d="M0,200 L1200,200 L1200,90 C1060,40 910,140 740,80 C560,20 410,120 240,60 C110,30 30,95 0,65 Z" fill="#581974" stroke="#1f072c" stroke-width="6"/>
+      <path d="M0,200 L1200,200 L1200,120 C1040,80 880,160 710,115 C530,70 390,150 220,105 C100,80 30,130 0,105 Z" fill="#cce436" stroke="#1f072c" stroke-width="6"/>
+    </svg>
+  </div>
+
+  <!-- ================= JEJAK KAKI DAN PAW SCOOBY (FEATURE 3.a) ================= -->
+  <div id="footprint-track" class="footprint-track"></div>
+
+  <!-- ================= MYSTERY MACHINE VAN ================= -->
+  <div class="van-track">
+    <div id="vanActor" class="van-actor">
+      <img 
+        src="df16qgv-890dc92a-c0d0-4836-90d8-7fed1dd0fad6.png" 
+        alt="The Mystery Machine" 
+        class="van-sprite" 
+        onerror="this.style.display='none'"
+      />
+    </div>
+  </div>
+
+  <!-- ================= PARALLAX WORLD: BUNGA FRAME PERIMETER ================= -->
+  <div id="parallax-world" class="fixed inset-0 pointer-events-none overflow-hidden select-none z-0">
+    <!-- Sisi Kiri -->
+    <img src="poster diksar 26.png" class="p-item dof-focus absolute top-[5%] -left-3 w-16 sm:w-24 -rotate-12" data-speed="0.65" alt=""/>
+    <img src="poster diksar 26.png" class="p-item dof-mid absolute top-[18%] left-[2%] w-12 sm:w-16 rotate-12" data-speed="0.45" alt=""/>
+    <img src="poster diksar 26.png" class="p-item dof-deep absolute top-[32%] left-[4%] w-10 sm:w-14 -rotate-45" data-speed="0.25" alt=""/>
+    <img src="poster diksar 26.png" class="p-item dof-focus absolute top-[48%] -left-4 w-14 sm:w-20 rotate-45" data-speed="0.70" alt=""/>
+    <img src="poster diksar 26.png" class="p-item dof-mid absolute top-[64%] left-[2%] w-12 sm:w-18 -rotate-12" data-speed="0.40" alt=""/>
+    <img src="poster diksar 26.png" class="p-item dof-deep absolute bottom-[22%] left-[5%] w-10 sm:w-14 rotate-12" data-speed="0.20" alt=""/>
+    <img src="poster diksar 26.png" class="p-item dof-focus absolute bottom-[8%] -left-3 w-16 sm:w-24 rotate-45" data-speed="0.65" alt=""/>
+
+    <!-- Sisi Kanan -->
+    <img src="poster diksar 26.png" class="p-item dof-focus absolute top-[8%] -right-3 w-14 sm:w-22 rotate-12" data-speed="0.65" alt=""/>
+    <img src="poster diksar 26.png" class="p-item dof-mid absolute top-[20%] right-[3%] w-12 sm:w-16 -rotate-12" data-speed="0.40" alt=""/>
+    <img src="poster diksar 26.png" class="p-item dof-deep absolute top-[35%] right-[4%] w-10 sm:w-14 rotate-45" data-speed="0.22" alt=""/>
+    <img src="poster diksar 26.png" class="p-item dof-focus absolute top-[50%] -right-4 w-16 sm:w-22 -rotate-45" data-speed="0.75" alt=""/>
+    <img src="poster diksar 26.png" class="p-item dof-mid absolute top-[66%] right-[2%] w-12 sm:w-16 rotate-12" data-speed="0.42" alt=""/>
+    <img src="poster diksar 26.png" class="p-item dof-deep absolute bottom-[20%] right-[5%] w-11 sm:w-15 -rotate-12" data-speed="0.18" alt=""/>
+    <img src="poster diksar 26.png" class="p-item dof-focus absolute bottom-[8%] -right-3 w-16 sm:w-24 -rotate-12" data-speed="0.70" alt=""/>
+
+    <!-- Kelelawar Samar -->
+    <img src="PPT INTAN BUNGA2.png" class="p-item dof-deep absolute top-[14%] left-[18%] w-14 sm:w-20 opacity-20" data-speed="0.15" alt=""/>
+    <img src="PPT INTAN BUNGA2.png" class="p-item dof-deep absolute top-[16%] right-[16%] w-14 sm:w-20 opacity-20 scale-x-[-1]" data-speed="0.15" alt=""/>
+  </div>
+
+  <!-- ================= SATU KONTINER PUSAT ================= -->
+  <div class="w-full max-w-[350px] sm:max-w-[390px] mx-auto flex flex-col items-center relative z-20 my-auto">
+    
+    <!-- HEADER -->
+    <header class="w-full flex flex-col items-center text-center mb-7 sm:mb-9">
+      <!-- Logos Row -->
+      <div class="flex items-center justify-center gap-5 sm:gap-7 mb-2">
+        <!-- CRAST FM -->
+        <div class="flex flex-col items-center">
+          <img src="poster diksar 269.png" alt="CRAST 107.8 FM" class="img-logo-crast drop-shadow-md" onerror="this.src='https://placehold.co/80x80/cce436/1f072c?text=CRAST'"/>
+          <span class="mt-0.5 text-[8px] sm:text-[9px] font-cartoon-accent text-[#cce436] tracking-widest font-bold">CRAST FM</span>
+        </div>
+        
+        <!-- Divider -->
+        <div class="h-7 w-[2px] bg-[#cce436]/40 rounded-full"></div>
+
+        <!-- KABINET -->
+        <div class="flex flex-col items-center">
+          <img src="poster diksar 268.png" alt="Kabinet Logo" class="img-logo-kabinet drop-shadow-md" onerror="this.src='https://placehold.co/80x80/581974/fff?text=KABINET'"/>
+          <span class="mt-0.5 text-[8px] sm:text-[9px] font-cartoon-accent text-[#cce436] tracking-widest font-bold">KABINET</span>
+        </div>
+      </div>
+
+      <!-- Alert Tag -->
+      <div class="inline-flex items-center gap-1.5 bg-[#cce436] text-[#1f072c] px-3 py-0.5 rounded-full border-[2px] border-[#1f072c] shadow-[0_2px_0px_#1f072c] mb-2.5">
+        <span class="font-cartoon-accent text-[8px] sm:text-[10px] font-bold tracking-wider uppercase">ZOINKS! WE'RE ON AIR!</span>
+      </div>
+
+      <!-- LOGO DIKSAR CRAST 2026 (SKALA BESAR SEBAGAI JUDUL UTAMA) -->
+      <div class="w-full flex justify-center">
+        <img 
+          src="LOGO DIKSAR.png" 
+          alt="DIKSAR CRAST 2026" 
+          class="img-logo-diksar drop-shadow-[0_6px_16px_rgba(0,0,0,0.65)]"
+        />
+      </div>
+    </header>
+
+    <!-- FORM CARD DOSSIER -->
+    <main class="w-full">
+      <div class="dossier-folder rounded-2xl sm:rounded-3xl p-4 sm:p-6 pb-5 sm:pb-6 relative bg-[#fffdf5]">
+        
+        <!-- Folder Tab -->
+        <div class="folder-tab">
+          <span class="w-2 h-2 rounded-full bg-[#f16422] border border-[#1f072c]"></span>
+          <span>CASE FILE #2026-CRAST</span>
+        </div>
+
+        <div class="text-center mb-3 pt-0.5">
+          <div class="mb-1">
+            <span class="case-stamp">CONFIDENTIAL</span>
+          </div>
+          <h2 class="font-cartoon-title text-xl sm:text-2xl text-[#1f072c] tracking-wide mb-0.5">
+            BUKA BERKAS KASUSMU
+          </h2>
+          <p class="text-[11px] sm:text-xs text-slate-600 font-medium">
+            Isi data sesuai yang kamu daftarkan
+          </p>
+        </div>
+
+        <form id="loginForm" class="space-y-3" onsubmit="handleOpenCase(event)">
+          <div>
+            <label class="block text-[10px] sm:text-xs font-extrabold text-[#1f072c] uppercase tracking-wider mb-1">
+              NIM
+            </label>
+            <input 
+              id="nim-input"
+              type="text" 
+              inputmode="numeric"
+              required
+              placeholder="153260xxx / 153250xxx" 
+              class="w-full px-3 py-2 sm:py-2.5 bg-white border-[2.5px] sm:border-[3px] border-[#1f072c] rounded-xl text-xs sm:text-sm text-[#1f072c] placeholder-slate-400 font-bold focus:outline-none focus:ring-2 focus:ring-[#cce436] transition shadow-inner"
+            />
+          </div>
+
+          <div>
+            <label class="block text-[10px] sm:text-xs font-extrabold text-[#1f072c] uppercase tracking-wider mb-1">
+              PASSWORD
+            </label>
+            <div class="relative">
+              <input 
+                id="password-input" 
+                type="password" 
+                required
+                placeholder="Masukkan password" 
+                class="w-full px-3 py-2 sm:py-2.5 bg-white border-[2.5px] sm:border-[3px] border-[#1f072c] rounded-xl text-xs sm:text-sm text-[#1f072c] placeholder-slate-400 font-bold focus:outline-none focus:ring-2 focus:ring-[#cce436] transition shadow-inner pr-10"
+              />
+              <button 
+                type="button" 
+                id="toggle-pass"
+                aria-label="Toggle password"
+                class="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 text-slate-500 hover:text-[#1f072c] active:scale-90 transition"
+              >
+                <i data-lucide="eye" id="pass-icon" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="pt-1">
+            <button 
+              id="submitBtn"
+              type="submit" 
+              class="btn-action w-full py-2.5 sm:py-3 rounded-xl font-cartoon-title text-base sm:text-lg text-white tracking-wider flex items-center justify-center gap-2 cursor-pointer uppercase"
+            >
+              <i data-lucide="folder-open" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+              <span id="btnText">BUKA BERKAS</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- COPYRIGHT TEPAT DI BAWAH KARTU -->
+    <div class="w-full text-center mt-3">
+      <p class="text-[10px] sm:text-[11px] font-semibold text-[#cce436]/90 tracking-wide px-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+        © 2026 CRAST 107.8 FM — Pengumuman Penerimaan Anggota Baru
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ================= UNMASKING MODAL / ACCEPTANCE LETTER (FEATURE 1.c) ================= -->
+  <div id="unmaskModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 opacity-0 pointer-events-none unmask-overlay">
+    <div id="unmaskCard" class="unmask-card w-full max-w-sm sm:max-w-md bg-[#fffdf5] border-4 border-[#1f072c] rounded-3xl p-5 sm:p-6 relative shadow-[10px_14px_0px_#1f072c] scale-90">
+      
+      <!-- Top Folder Badge -->
+      <div class="folder-tab">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#16a34a] border border-[#1f072c]"></span>
+        <span>VERDICT REPORT #2026</span>
+      </div>
+
+      <!-- Close Button -->
+      <button 
+        type="button"
+        onclick="closeUnmaskModal()"
+        class="absolute top-3 right-3 p-1.5 rounded-full bg-slate-200 hover:bg-[#f16422] hover:text-white border-2 border-[#1f072c] transition shadow-sm"
+        aria-label="Tutup"
+      >
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Modal Content Header -->
+      <div class="text-center pt-2 mb-3">
+        <div class="inline-block mb-1.5">
+          <span class="accepted-stamp">DITERIMA!</span>
+        </div>
+        <h3 class="font-cartoon-title text-2xl sm:text-3xl text-[#1f072c] tracking-wide mt-1">
+          SELAMAT!
+        </h3>
+        <p class="text-[11px] sm:text-xs text-slate-600 font-semibold mt-0.5">
+          Selamat! Kamu resmi lolos ke rangkaian DIKSAR CRAST selanjutnya!
+        </p>
+      </div>
+
+      <!-- Dossier Sheet Body -->
+      <div class="bg-amber-50/70 border-2 border-dashed border-[#581974]/40 rounded-2xl p-3.5 sm:p-4 mb-4 text-left space-y-2">
+        <div class="flex justify-between items-center text-xs pb-1 border-b border-purple-200">
+          <span class="font-bold text-slate-500 uppercase tracking-wider text-[10px]">NAMA CLUEVERS:</span>
+          <span id="revealedNama" class="font-cartoon-accent font-bold text-[#581974] text-xs">Detektif Baru</span>
+        </div>
+        <div class="flex justify-between items-center text-xs pb-1 border-b border-purple-200">
+          <span class="font-bold text-slate-500 uppercase tracking-wider text-[10px]">NOMOR KANDIDAT:</span>
+          <span id="revealedNim" class="font-cartoon-accent font-bold text-[#581974] text-xs">153260xxx</span>
+        </div>
+        <div class="flex justify-between items-center text-xs pb-1 border-b border-purple-200">
+          <span class="font-bold text-slate-500 uppercase tracking-wider text-[10px]">STATUS KASUS:</span>
+          <span class="font-cartoon-accent font-bold text-emerald-600 text-xs">LOLOS SELEKSI BERKAS</span>
+        </div>
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-bold text-slate-500 uppercase tracking-wider text-[10px]">PENUGASAN MISI:</span>
+          <span class="font-cartoon-accent font-bold text-[#f16422] text-xs">RANGKAIAN DIKSAR SELANJUTNYA</span>
+        </div>
+
+        <div class="pt-1.5 text-center">
+          <p class="font-marker text-xs text-[#581974] leading-relaxed">
+            "Now let's see who's really behind the mic... It's YOU! Siapkan dirimu di gelombang 107.8 FM!"
+          </p>
+        </div>
+      </div>
+
+      <!-- Action: Retrigger Confetti / Selesai -->
+      <div class="space-y-2">
+        <button 
+          type="button" 
+          onclick="fireRetroFlowerConfetti()"
+          class="btn-action w-full py-2.5 rounded-xl font-cartoon-title text-sm sm:text-base text-white tracking-wider flex items-center justify-center gap-2 cursor-pointer uppercase"
+        >
+          <span>🎉 RAYAKAN LAGI!</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= REJECTION MODAL / CASE UNSOLVED ================= -->
+  <div id="rejectModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 opacity-0 pointer-events-none unmask-overlay">
+    <div id="rejectCard" class="unmask-card w-full max-w-sm sm:max-w-md bg-[#fffdf5] border-4 border-[#1f072c] rounded-3xl p-5 sm:p-6 relative shadow-[10px_14px_0px_#1f072c] scale-90">
+
+      <!-- Top Folder Badge -->
+      <div class="folder-tab">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#d9381e] border border-[#1f072c]"></span>
+        <span>VERDICT REPORT #2026</span>
+      </div>
+
+      <!-- Close Button -->
+      <button
+        type="button"
+        onclick="closeRejectModal()"
+        class="absolute top-3 right-3 p-1.5 rounded-full bg-slate-200 hover:bg-[#f16422] hover:text-white border-2 border-[#1f072c] transition shadow-sm"
+        aria-label="Tutup"
+      >
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Modal Content Header -->
+      <div class="text-center pt-2 mb-3">
+        <div class="inline-block mb-1.5">
+          <span id="rejectStamp" class="case-stamp" style="font-size:18px; padding:4px 14px; border-width:3.5px;">MOHON MAAF</span>
+        </div>
+        <h3 id="rejectTitle" class="font-cartoon-title text-2xl sm:text-3xl text-[#1f072c] tracking-wide mt-1">
+          KASUS BELUM TERPECAHKAN
+        </h3>
+        <p id="rejectMsg" class="text-[11px] sm:text-xs text-slate-600 font-semibold mt-0.5">
+          NIM atau password tidak cocok dengan data kami.
+        </p>
+      </div>
+
+      <!-- Dossier Sheet Body -->
+      <div class="bg-amber-50/70 border-2 border-dashed border-[#581974]/40 rounded-2xl p-3.5 sm:p-4 mb-4 text-left space-y-2">
+        <div class="flex justify-between items-center text-xs pb-1 border-b border-purple-200">
+          <span class="font-bold text-slate-500 uppercase tracking-wider text-[10px]">NAMA DETEKTIF:</span>
+          <span id="rejectedNama" class="font-cartoon-accent font-bold text-[#581974] text-xs">Detektif Baru</span>
+        </div>
+        <div class="flex justify-between items-center text-xs pb-1 border-b border-purple-200">
+          <span class="font-bold text-slate-500 uppercase tracking-wider text-[10px]">NOMOR KANDIDAT:</span>
+          <span id="rejectedNim" class="font-cartoon-accent font-bold text-[#581974] text-xs">153260xxx</span>
+        </div>
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-bold text-slate-500 uppercase tracking-wider text-[10px]">STATUS KASUS:</span>
+          <span id="rejectStatus" class="font-cartoon-accent font-bold text-[#d9381e] text-xs">DATA TIDAK DITEMUKAN</span>
+        </div>
+
+        <div class="pt-1.5 text-center">
+          <p id="rejectQuote" class="font-marker text-xs text-[#581974] leading-relaxed">
+            "Jinkies! Sepertinya topeng ini belum jadi milikmu... kali ini. Coba periksa lagi NIM dan password kamu, atau hubungi panitia."
+          </p>
+        </div>
+      </div>
+
+      <!-- Action: Close -->
+      <div class="space-y-2">
+        <button
+          type="button"
+          onclick="closeRejectModal()"
+          class="btn-action w-full py-2.5 rounded-xl font-cartoon-title text-sm sm:text-base text-white tracking-wider flex items-center justify-center gap-2 cursor-pointer uppercase"
+        >
+          <span>TUTUP BERKAS</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Toggle Password Visibility
+    const passwordInput = document.getElementById('password-input');
+    const togglePassBtn = document.getElementById('toggle-pass');
+    const passIcon = document.getElementById('pass-icon');
+
+    togglePassBtn.addEventListener('click', () => {
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passIcon.setAttribute('data-lucide', 'eye-off');
+      } else {
+        passwordInput.type = 'password';
+        passIcon.setAttribute('data-lucide', 'eye');
+      }
+      lucide.createIcons();
+    });
+
+    // ================= PARALLAX ENGINE =================
+    const parallaxItems = document.querySelectorAll('.p-item');
+    let currentScroll = 0;
+    let targetScroll = 0;
+    let tiltX = 0, tiltY = 0;
+    let targetTiltX = 0, targetTiltY = 0;
+
+    window.addEventListener('scroll', () => {
+      targetScroll = window.pageYOffset || document.documentElement.scrollTop;
+    }, { passive: true });
+
+    window.addEventListener('mousemove', (e) => {
+      targetTiltX = (e.clientX / window.innerWidth - 0.5) * 35;
+      targetTiltY = (e.clientY / window.innerHeight - 0.5) * 35;
+    }, { passive: true });
+
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', (e) => {
+        if (e.gamma !== null && e.beta !== null) {
+          targetTiltX = Math.min(Math.max(e.gamma, -25), 25) * 0.7;
+          targetTiltY = Math.min(Math.max(e.beta - 45, -25), 25) * 0.7;
+        }
+      }, { passive: true });
+    }
+
+    function renderParallax() {
+      currentScroll += (targetScroll - currentScroll) * 0.12;
+      tiltX += (targetTiltX - tiltX) * 0.08;
+      tiltY += (targetTiltY - tiltY) * 0.08;
+
+      parallaxItems.forEach(item => {
+        const speed = parseFloat(item.getAttribute('data-speed')) || 0.4;
+        const yScroll = -(currentScroll * speed);
+        const xOffset = tiltX * speed;
+        const yTilt = tiltY * speed;
+
+        item.style.transform = `translate3d(${xOffset}px, ${yScroll + yTilt}px, 0)`;
+      });
+
+      requestAnimationFrame(renderParallax);
+    }
+
+    renderParallax();
+
+    // ================= FEATURE 3.a: DYNAMIC FOOTPRINTS & SCOOBY PAW PRINTS =================
+    const footprintTrack = document.getElementById('footprint-track');
+    const vanActor = document.getElementById('vanActor');
+    let lastDropTime = 0;
+    let footprintStep = 0;
+
+    // SVG templates for Muddy Cartoon Human Shoes and Scooby Paw Prints
+    function getFootprintSVG(isPaw, isFlipped) {
+      const flipTransform = isFlipped ? 'scale(-1, 1) translate(-24, 0)' : '';
+      if (isPaw) {
+        // Scooby Dog Paw Print
+        return `
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="#1f072c" style="transform: ${flipTransform}">
+            <ellipse cx="16" cy="20" rx="7" ry="5.5" opacity="0.6"/>
+            <circle cx="9" cy="11" r="2.8" opacity="0.6"/>
+            <circle cx="15" cy="8.5" r="3" opacity="0.6"/>
+            <circle cx="21" cy="9.5" r="2.8" opacity="0.6"/>
+            <circle cx="25" cy="14" r="2.4" opacity="0.6"/>
+          </svg>`;
+      } else {
+        // Human Detective Shoe Print
+        return `
+          <svg width="20" height="24" viewBox="0 0 32 38" fill="#1f072c" style="transform: ${flipTransform}">
+            <path d="M12,4 C16,4 20,8 19,16 C18,22 13,24 10,24 C7,24 5,20 6,15 C7,8 9,4 12,4 Z" opacity="0.55"/>
+            <ellipse cx="11" cy="30" rx="4.5" ry="4" opacity="0.55"/>
+          </svg>`;
+      }
+    }
+
+    function spawnFootprintTrail() {
+      const now = performance.now();
+      if (!vanActor) return;
+
+      const rect = vanActor.getBoundingClientRect();
+      // Drop print only when the Mystery Machine is inside visible screen width
+      if (rect.left > -40 && rect.right < window.innerWidth + 40) {
+        if (now - lastDropTime > 260) {
+          lastDropTime = now;
+          footprintStep++;
+
+          const printElem = document.createElement('div');
+          printElem.className = 'print-node';
+          
+          // Alternate between Scooby paw and human shoe
+          const isPaw = (footprintStep % 2 === 0);
+          const isFlipped = (footprintStep % 4 >= 2);
+          
+          printElem.innerHTML = getFootprintSVG(isPaw, isFlipped);
+          
+          // Position relative to back wheel area of the moving van
+          const xPos = rect.left + (rect.width * 0.2) + (Math.random() * 12 - 6);
+          const yPos = Math.random() * 14 + 6;
+          
+          printElem.style.left = `${xPos}px`;
+          printElem.style.top = `${yPos}px`;
+
+          footprintTrack.appendChild(printElem);
+
+          // Fade out smoothly after appearance
+          setTimeout(() => {
+            printElem.classList.add('fading');
+          }, 1200);
+
+          // Remove node from DOM after fade finishes
+          setTimeout(() => {
+            if (printElem.parentNode) {
+              printElem.parentNode.removeChild(printElem);
+            }
+          }, 3200);
+        }
+      }
+      requestAnimationFrame(spawnFootprintTrail);
+    }
+
+    requestAnimationFrame(spawnFootprintTrail);
+
+    // ================= FEATURE 3.b: RETRO FLORAL COLORFUL CONFETTI BURST =================
+    function fireRetroFlowerConfetti() {
+      if (typeof confetti !== 'function') return;
+
+      const scoobyColors = ['#cce436', '#581974', '#f16422', '#ffde00', '#22d3ee'];
+
+      // Left and right synchronized canon
+      confetti({
+        particleCount: 45,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0.1, y: 0.7 },
+        colors: scoobyColors,
+        scalar: 1.25,
+        shapes: ['circle', 'square']
+      });
+
+      confetti({
+        particleCount: 45,
+        angle: 120,
+        spread: 55,
+        origin: { x: 0.9, y: 0.7 },
+        colors: scoobyColors,
+        scalar: 1.25,
+        shapes: ['circle', 'square']
+      });
+
+      // Big playful center starburst
+      setTimeout(() => {
+        confetti({
+          particleCount: 70,
+          spread: 100,
+          origin: { x: 0.5, y: 0.55 },
+          colors: scoobyColors,
+          gravity: 0.8,
+          scalar: 1.4
+        });
+      }, 250);
+    }
+
+    // ================= KONEKSI DATA: GOOGLE APPS SCRIPT (AMAN) =================
+    /* =========================================================
+       KONFIGURASI
+       =========================================================
+       URL di bawah adalah endpoint Google Apps Script yang jadi
+       "penjaga pintu" ke Google Sheets. Endpoint ini menerima NIM
+       + password, mengecek ke Sheets di sisi server, dan cuma
+       mengembalikan nama + status untuk NIM itu saja — bukan
+       seluruh data spreadsheet.
+
+       Kalau kamu edit ulang script-nya (code.gs), ingat untuk
+       Deploy > Manage deployments > Edit > New version supaya
+       perubahan kepakai, lalu ganti URL di bawah kalau URL-nya
+       berubah.
+       ========================================================= */
+    const CHECK_ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbxMcmAO8fBjDvB55ZhJ8tXUqkiGVqui90JZEzGrPzkroW85au3xRKXMKlHz0En9K2jjKw/exec";
+
+    // ================= FEATURE 1.c: UNMASKING ANIMATION SEQUENCE =================
+    const unmaskModal = document.getElementById('unmaskModal');
+    const unmaskCard = document.getElementById('unmaskCard');
+    const revealedNim = document.getElementById('revealedNim');
+    const revealedNama = document.getElementById('revealedNama');
+    const rejectModal = document.getElementById('rejectModal');
+    const rejectCard = document.getElementById('rejectCard');
+    const rejectedNim = document.getElementById('rejectedNim');
+    const rejectedNama = document.getElementById('rejectedNama');
+    const rejectTitle = document.getElementById('rejectTitle');
+    const rejectMsg = document.getElementById('rejectMsg');
+    const rejectQuote = document.getElementById('rejectQuote');
+    const rejectStatus = document.getElementById('rejectStatus');
+    const rejectStamp = document.getElementById('rejectStamp');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+
+    // Panggil endpoint Apps Script pakai teknik JSONP (menghindari CORS)
+    function callCheckEndpoint(nim, password) {
+      return new Promise((resolve, reject) => {
+        const callbackName = 'jsonpCallback_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+        const script = document.createElement('script');
+
+        // Timeout jaga-jaga kalau request nyangkut / gagal total
+        const timeoutId = setTimeout(() => {
+          cleanup();
+          reject(new Error('timeout'));
+        }, 15000);
+
+        function cleanup() {
+          clearTimeout(timeoutId);
+          delete window[callbackName];
+          if (script.parentNode) script.parentNode.removeChild(script);
+        }
+
+        window[callbackName] = function (data) {
+          cleanup();
+          resolve(data);
+        };
+
+        script.onerror = function () {
+          cleanup();
+          reject(new Error('script_error'));
+        };
+
+        const url = CHECK_ENDPOINT_URL
+          + '?nim=' + encodeURIComponent(nim)
+          + '&password=' + encodeURIComponent(password)
+          + '&callback=' + callbackName
+          + '&cachebust=' + Date.now();
+
+        script.src = url;
+        document.body.appendChild(script);
+      });
+    }
+
+    async function handleOpenCase(e) {
+      e.preventDefault();
+      const nimVal = document.getElementById('nim-input').value.trim();
+      const passVal = document.getElementById('password-input').value.trim();
+
+      // Step 1: Cartoon Unmasking Loading State
+      submitBtn.disabled = true;
+      btnText.textContent = "MEMBUKA TOPENG...";
+      submitBtn.classList.add('brightness-110');
+
+      try {
+        const data = await callCheckEndpoint(nimVal, passVal);
+
+        // Suspense delay biar animasi kebuka topeng kerasa
+        setTimeout(() => {
+          if (!data.found) {
+            rejectedNim.textContent = nimVal || '153260xxx';
+            rejectedNama.textContent = 'Belum Terdaftar';
+            rejectTitle.textContent = 'KASUS BELUM TERPECAHKAN';
+            rejectMsg.textContent = 'NIM atau password tidak cocok dengan data kami.';
+            rejectStatus.textContent = 'DATA TIDAK DITEMUKAN';
+            rejectStamp.textContent = 'MOHON MAAF';
+            rejectQuote.textContent = '"Jinkies! Sepertinya topeng ini belum jadi milikmu... kali ini. Coba periksa lagi NIM dan password kamu, atau hubungi panitia."';
+
+            rejectModal.classList.remove('opacity-0', 'pointer-events-none');
+            rejectModal.classList.add('opacity-100');
+            rejectCard.classList.remove('scale-90');
+            rejectCard.classList.add('scale-100');
+
+          } else {
+            const status = (data.status || '').trim().toLowerCase();
+
+            if (status === 'diterima') {
+              revealedNim.textContent = nimVal;
+              revealedNama.textContent = data.nama || 'Detektif Baru';
+
+              unmaskModal.classList.remove('opacity-0', 'pointer-events-none');
+              unmaskModal.classList.add('opacity-100');
+              unmaskCard.classList.remove('scale-90');
+              unmaskCard.classList.add('scale-100');
+
+              fireRetroFlowerConfetti();
+
+            } else if (status === 'ditolak') {
+              rejectedNim.textContent = nimVal;
+              rejectedNama.textContent = data.nama || 'Detektif Baru';
+              rejectTitle.textContent = 'KASUS TELAH DITUTUP';
+              rejectMsg.textContent = 'Kali ini kamu belum berhasil lolos seleksi.';
+              rejectStatus.textContent = 'DITOLAK';
+              rejectStamp.textContent = 'MOHON MAAF';
+              rejectQuote.textContent = '"Jinkies! Sepertinya jejak yang kamu tinggalkan belum cukup untuk membuka pintu markas kami kali ini. Terima kasih sudah ikut berpetualang bersama kami!"';
+
+              rejectModal.classList.remove('opacity-0', 'pointer-events-none');
+              rejectModal.classList.add('opacity-100');
+              rejectCard.classList.remove('scale-90');
+              rejectCard.classList.add('scale-100');
+
+            } else {
+              // Status belum diisi HUMAS
+              rejectedNim.textContent = nimVal;
+              rejectedNama.textContent = data.nama || 'Detektif Baru';
+              rejectTitle.textContent = 'KASUS MASIH DISELIDIKI';
+              rejectMsg.textContent = 'Hasil kamu belum diumumkan oleh panitia.';
+              rejectStatus.textContent = 'MENUNGGU HASIL';
+              rejectStamp.textContent = 'MOHON TUNGGU';
+              rejectQuote.textContent = '"Sabar ya, Detektif! Tim kami masih menyusun berkas terakhir. Cek lagi nanti."';
+
+              rejectModal.classList.remove('opacity-0', 'pointer-events-none');
+              rejectModal.classList.add('opacity-100');
+              rejectCard.classList.remove('scale-90');
+              rejectCard.classList.add('scale-100');
+            }
+          }
+
+          submitBtn.disabled = false;
+          btnText.textContent = "BUKA BERKAS";
+          submitBtn.classList.remove('brightness-110');
+        }, 700);
+
+      } catch (err) {
+        console.error(err);
+        submitBtn.disabled = false;
+        btnText.textContent = "BUKA BERKAS";
+        submitBtn.classList.remove('brightness-110');
+        alert('Tidak bisa mengambil data saat ini. Coba lagi sebentar lagi.');
+      }
+    }
+
+    function closeUnmaskModal() {
+      unmaskCard.classList.remove('scale-100');
+      unmaskCard.classList.add('scale-90');
+      unmaskModal.classList.remove('opacity-100');
+      unmaskModal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function closeRejectModal() {
+      rejectCard.classList.remove('scale-100');
+      rejectCard.classList.add('scale-90');
+      rejectModal.classList.remove('opacity-100');
+      rejectModal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    // Close modal on Escape key press
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeUnmaskModal();
+        closeRejectModal();
+      }
+    });
+  </script>
+</body>
+</html>

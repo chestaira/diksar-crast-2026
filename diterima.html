@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat! Kamu Diterima — Misteri Anggota Baru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal: #2C8C99;
+    --teal-dark: #1B5C66;
+    --orange: #F2994A;
+    --lime: #B7D93C;
+    --night: #1B1330;
+    --purple: #3A2358;
+    --cream: #FBF3DD;
+    --paper: #FFFDF6;
+    --ink: #241730;
+  }
+  *{ box-sizing: border-box; }
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(183,217,60,0.18), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(242,153,74,0.20), transparent 45%),
+      linear-gradient(180deg, var(--night) 0%, var(--purple) 55%, var(--night) 100%);
+    font-family:'Baloo 2', sans-serif;
+    color: var(--ink);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding: 40px 16px 80px;
+    overflow-x:hidden;
+    text-align:center;
+  }
+
+  .confetti-badge{
+    font-size: 3.4rem;
+    margin-bottom: 6px;
+    animation: bounce 1.6s ease-in-out infinite;
+  }
+  @keyframes bounce{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-10px); }
+  }
+
+  .eyebrow-badge{
+    display:inline-block;
+    background: var(--lime);
+    color: var(--night);
+    font-weight:700;
+    padding: 6px 18px;
+    border-radius: 999px;
+    transform: rotate(-3deg);
+    font-size: 0.92rem;
+    margin-bottom: 18px;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.25);
+  }
+
+  h1{
+    font-family:'Bangers', cursive;
+    font-weight:400;
+    letter-spacing: 1.5px;
+    font-size: clamp(2.2rem, 8vw, 3.6rem);
+    line-height: 1.1;
+    margin: 0 0 10px;
+    color: var(--cream);
+    text-shadow:
+      3px 3px 0 var(--orange),
+      6px 6px 0 var(--teal-dark);
+  }
+
+  .nama{
+    font-family:'Bangers', cursive;
+    font-size: clamp(1.6rem, 5vw, 2.3rem);
+    color: var(--lime);
+    letter-spacing: 1px;
+    margin: 4px 0 20px;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+  }
+
+  .stripe-divider{
+    width: min(560px, 90%);
+    height: 14px;
+    margin: 10px auto 26px;
+    border-radius: 999px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--orange), var(--orange) 18px,
+      var(--lime) 18px, var(--lime) 36px
+    );
+    box-shadow: 0 3px 0 rgba(0,0,0,0.3);
+  }
+
+  .card{
+    background: var(--paper);
+    border-radius: 22px;
+    padding: 34px 30px 30px;
+    max-width: 460px;
+    width:100%;
+    box-shadow: 0 18px 0 rgba(0,0,0,0.28), 0 20px 40px rgba(0,0,0,0.35);
+    border: 3px solid var(--lime);
+    position:relative;
+  }
+  .card::before, .card::after{
+    content:"";
+    position:absolute;
+    width: 26px; height: 26px;
+    background: var(--night);
+    border-radius: 50%;
+    top: -14px;
+  }
+  .card::before{ left: 26px; }
+  .card::after{ right: 26px; }
+
+  .card p{
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0 0 10px;
+  }
+  .card .signoff{
+    font-weight:700;
+    color: var(--teal-dark);
+  }
+
+  a.back{
+    display:inline-block;
+    margin-top: 30px;
+    color: rgba(251,243,221,0.75);
+    text-decoration: underline;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+  <div class="confetti-badge">🎉🔦🎉</div>
+  <span class="eyebrow-badge">Kasus Ditutup!</span>
+  <h1>SELAMAT DATANG,<br>DETEKTIF BARU!</h1>
+  <div class="nama" id="namaTarget">...</div>
+  <div class="stripe-divider"></div>
+
+  <div class="card">
+    <p>Setelah menyusuri lorong-lorong penuh petunjuk dan menyingkap semua misteri, tim kami sepakat: kamu <strong>RESMI DITERIMA</strong> sebagai anggota baru!</p>
+    <p>Velma sudah menyiapkan meja kerja, Scooby sudah nyiapin cemilan buat rapat pertama. Sampai jumpa di pertemuan berikutnya, geng — petualangan baru menanti! 🕵️‍♀️🐾</p>
+    <p class="signoff">— Panitia Penerimaan Anggota Baru</p>
+  </div>
+
+  <a class="back" href="index.html">&larr; Kembali ke halaman awal</a>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const nama = params.get('nama') || 'Detektif Baru';
+  document.getElementById('namaTarget').textContent = nama;
+  document.title = 'Selamat, ' + nama + '! — Diterima';
+</script>
+
+</body>
+</html>
